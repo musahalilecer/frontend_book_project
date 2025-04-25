@@ -1,27 +1,19 @@
 import React from 'react'
 import Label from '../atomic/Label'
 import TextArea from '../atomic/TextArea';
+import { JSX } from 'react/jsx-runtime';
 
 interface TableRowProp {
-  text: string;
-  value: string;
+  data: (string | number | any | JSX.Element)[];
 }
 
-const TableRow: React.FC<TableRowProp> = ({ text, value, ...props }) => {
+const TableRow: React.FC<TableRowProp> = ({ data, ...props }) => {
   return (
-    // <div>
-    //   <div>
-    //     <Label className='' text={text} />
-    //   </div>
-    //   <TextArea className='' value={value} placeholder={placeHolder}  />
-    // </div>
-    <div>
-      <tbody>
-        <tr>
-          <td>{value}</td>
-        </tr>
-      </tbody>
-    </div>
+    <tr>
+      {data.map((item, index) => (
+        <td key={index} className='px-4 py-2 border-b'>{data}</td>
+      ))}
+    </tr>
   )
 }
 

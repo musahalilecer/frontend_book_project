@@ -13,10 +13,10 @@ const SearchBar: React.FC<SearchBarProp> = ({value, placeHolder, ...props}) => {
       <div>
         
       </div>
-        <div>
+        <div className='border rounded-2xl p-1.5  '>
         <TextArea
         value={value}
-        className=''
+        className='text-gray-950'
         placeholder={placeHolder}
         />
     </div>

@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BookCard from './BookCard'
-import { Book } from '../../model/Book'
-import TextArea from '../atomic/TextArea'
-import Image from '../atomic/Image'
+import { Book } from '../../model/book'
+
 
 interface BasketProp{
   book: Book;
 }
+useEffect(() => {
 
-const Basket: React.FC<BasketProp> = () => {
+})
+
+const Basket: React.FC<BasketProp> = ({book, ...props}) => {
   return (
     <div>
-      
+      <div className="">
+        {}
+      </div>
     </div>
   )
 }
