@@ -1,13 +1,11 @@
 import React from 'react'
-import AuthBox from '../organism/AuthBox'
+import AuthBox from '../organism/LoginForm'
 
 const Register = () => {
   return (
-    <div>
-        <div>
-            
-        </div>
-    </div>
+    <form action="">
+
+    </form>
   )
 }
 

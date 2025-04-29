@@ -5,15 +5,18 @@ import { JSX } from 'react/jsx-runtime';
 
 interface TableRowProp {
   data: (string | number | any | JSX.Element)[];
+  className: string;
 }
 
-const TableRow: React.FC<TableRowProp> = ({ data, ...props }) => {
+const TableRow: React.FC<TableRowProp> = ({ data, className, ...props }) => {
   return (
-    <tr>
-      {data.map((item, index) => (
-        <td key={index} className='px-4 py-2 border-b'>{data}</td>
-      ))}
-    </tr>
+    <tbody>
+      <tr className={className}>
+        {data.map((item, index) => (
+          <td key={index} className='px-4 py-2 border-b'>{data}</td>
+        ))}
+      </tr>
+    </tbody>
   )
 }
 

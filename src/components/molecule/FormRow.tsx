@@ -2,7 +2,7 @@ import React, { Children } from 'react'
 import Label from '../atomic/Label'
 import Input from '../atomic/Input'
 
-interface FormRowProp{
+interface FormRowProp {
   label: string;
   placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -22,7 +22,7 @@ const FormRow: React.FC<FormRowProp> = ({
   value,
   required,
   className,
-          ...props}) => {
+  ...props }) => {
   return (
     <div>
       <div>

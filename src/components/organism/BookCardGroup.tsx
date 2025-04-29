@@ -6,13 +6,16 @@ interface BookCardGroupProp{
   book: Book;
   goToDetail: () => void;
   goToBasket: () => void;
+  books: Book[];
 }
 
-const BookCardGroup: React.FC<BookCardGroupProp> = ({book, goToBasket, goToDetail, ...props}) => {
+const BookCardGroup: React.FC<BookCardGroupProp> = ({book, books, goToBasket, goToDetail, ...props}) => {
   return (
-    <div>
+    <div className=''>
       <div className='grid-cols-3'>
-        <BookCard book={book} onBasket={goToBasket} onDetail={goToDetail}/>
+        {books.map((book, item) => (
+          <BookCard key={item} book={book} onBasket={goToBasket} onDetail={goToDetail}/>
+        ))}
       </div>
     </div>
   )

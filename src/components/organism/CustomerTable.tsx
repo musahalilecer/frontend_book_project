@@ -9,9 +9,9 @@ interface CustomerTableProps {
 
 const CustomerTable: React.FC<CustomerTableProps> = ({ customer, customers, ...props }) => {
   return (
-    <div>
-      <div>
-        <TableHead headers={[
+    <div className='relative overflow-x-auto'>
+      <div className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+        <TableHead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400' headers={[
           "Name",
           "Surname",
           "Email",
@@ -21,6 +21,7 @@ const CustomerTable: React.FC<CustomerTableProps> = ({ customer, customers, ...p
         <div>
           {customers.map((customer, index) => (
             <TableRow 
+            className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'
             key={index}
             data={[
               customer.name,
