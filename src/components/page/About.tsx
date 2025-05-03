@@ -3,27 +3,31 @@ import Image from '../atomic/Image'
 
 const About = () => {
     return (
-        <div>
-            <div className=''>
-                <Image className='' image='https://media.istockphoto.com/id/949118068/photo/books.jpg?s=612x612&w=0&k=20&c=1vbRHaA_aOl9tLIy6P2UANqQ27KQ_gSF-BH0sUjQ730=' />
+        <section className="bg-white py-24 px-6">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                        Our Mission is to Empower Readers
+                    </h2>
+                    <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                        We believe that knowledge should be accessible to all. Our platform helps readers connect with books, ideas, and communities that matter.
+                    </p>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                        Whether you're a student, professional, or lifelong learner, our resources are here to support your journey. Join us and start exploring today.
+                    </p>
+                    <button className="mt-6 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition cursor-pointer">
+                        Get Started
+                    </button>
+                </div>
+                <div>
+                    <img
+                        src="https://www.neh.gov/sites/default/files/styles/medium/public/2018-06/openbooks.jpg?itok=kUdGYpx_"
+                        alt="Library illustration"
+                        className="rounded-lg shadow-lg max-w-128 object-cover"
+                    />
+                </div>
             </div>
-            <div>
-                <h2 className=''>Libary for getting Book</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptas nihil vitae tempore ullam dolor, 
-                    eaque dolorem, praesentium nemo vero dolorum, excepturi voluptates commodi perferendis architecto aperiam 
-                    sit rerum sequi error a rem libero unde voluptatibus animi. Reiciendis similique veniam perspiciatis in 
-                    accusamus tenetur, atque deserunt dolorem quia suscipit pariatur numquam sed quam eligendi non reprehenderit 
-                    dignissimos doloribus tempora. Assumenda, similique delectus blanditiis, ipsam iure maiores laborum quibusdam 
-                    architecto voluptatum molestiae, quis ratione voluptas modi? Nemo, a porro voluptatibus itaque saepe fugit 
-                    perspiciatis suscipit inventore non eligendi esse fuga laudantium dolorem voluptas? Architecto nobis quasi 
-                    pariatur aliquid. Quo, perspiciatis laboriosam.
-                </p>
-            </div>
-            <div>
-                <Image className='' image=''></Image>
-            </div>
-        </div>
+        </section>
     )
 }
 

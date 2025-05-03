@@ -15,25 +15,27 @@ interface LoginFormProps{
 
 const LoginForm: React.FC<LoginFormProps> = ({email, setEmail, password, setPassword, onSubmit, ...props}) => {
     return (
-        <form action="" onSubmit={onSubmit}>
-            <div>
+        <form action="" onSubmit={onSubmit} className='mt-4'>
+            <div className='flex flex-col mt-2'>
                 <Label text='Email'/>
                 <Input
-                 placeHolder='Ent'
+                 placeHolder='Enter the E mail'
                  name='email'
                  value={email}
                  onChange={(e:React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                  type='email'
+                 className='border rounded-sm border-gray-500 hover:border-gray-800 hover:border-2'
                  />
             </div>
-            <div>
+            <div className='flex flex-col mt-2'>
                 <Label text='Password'/>
                 <Input
                  placeHolder='Enter the Password'
                  name='password'
                  type='password'
                  value={password}
-                 onChange={(e:React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} 
+                 onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                 className='border rounded-sm border-gray-500 hover:border-gray-800 hover:border-2' 
                 />
             </div>
             {/* <div className='mt-10'>
