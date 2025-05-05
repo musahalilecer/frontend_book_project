@@ -11,6 +11,9 @@ import Contact from './components/page/Contact'
 import Login from './components/template/Login'
 import Register from './components/template/Register'
 import Footer from './components/template/Footer'
+import Admin from './components/page/Admin'
+import BookFormTemplate from './components/template/BookFormTemplate'
+import CustomerFormTemplate from './components/template/CustomerFormTemplate'
 
 function App() {
 
@@ -25,6 +28,16 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path='/admin' element={<Admin />}/>
+
+        {/* <Route path='/book_form' element={<BookFormTemplate book={{
+            image: '',
+            title: '',
+            page: 0,
+            price: 0
+          }} books={[]} />}/>
+        <Route path='/customer_form' element={<CustomerFormTemplate />}/> */}
+
       </Routes>
     </main>
 
