@@ -9,22 +9,9 @@ const Admin: React.FC = () => {
   return (
     <div className="flex min-h-screen">
       <AdminNavbar />
-      <div>
-        Test Admin
-      </div>
-      <Routes>
-        <Route path='/admin/book_form' element={<BookFormTemplate book={{
-            image: '',
-            title: '',
-            page: 0,
-            price: 0
-          }} books={[]} />}/>
-        <Route path='/customer_form' element={<CustomerFormTemplate />}/>
-
-      </Routes>
-      {/* <main className="flex-1 bg-gray-50 p-10 overflow-auto">
+       <main className="flex-1 bg-gray-50 p-10 overflow-auto">
         <Outlet />
-      </main> */}
+      </main> 
     </div>
   )
 }

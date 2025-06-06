@@ -21,7 +21,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ email, setEmail, password, 
              value={email}
              type='email'
              onChange={(e:React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-             className='border rounded-sm border-gray-500 hover:border-gray-800 hover:border-2'
+             className='h-12 sm:h-6 md:h-8 border rounded-lg border-gray-500 hover:border-gray-800 hover:border-2 px-2'
             />
         </div>
         <div className='flex flex-col mt-2'>
@@ -32,7 +32,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ email, setEmail, password, 
              value={password}
              type='password'
              onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-             className='border rounded-sm border-gray-500 hover:border-gray-800 hover:border-2'
+             className='h-12 sm:h-6 md:h-8 border rounded-lg border-gray-500 hover:border-gray-800 hover:border-2 px-2'
             /> 
         </div>
     </form>

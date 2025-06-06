@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BookCardGroup from '../organism/BookCardGroup'
 import BookCard from '../molecule/BookCard';
 import { Book } from '../../model/book';
+import BookService from '../../service/BookService';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+  const navigate = useNavigate();
   
+  /*
   const books: Book[] = [
     {
       image: "https://m.media-amazon.com/images/I/81F38erQmuL._AC_UF1000,1000_QL80_.jpg",
@@ -43,6 +48,21 @@ const Home = () => {
       price: 180,
     },
   ];
+  */
+  const [books, setBooks] = useState<Book[]>([]);
+  const bookService = new BookService();
+
+  useEffect (() => {
+    const fetchBooks = async () => {
+      try{
+        const data = await bookService.getAll();
+        setBooks(data);
+      }catch(e){
+        console.log(e);
+      }
+    };
+    fetchBooks();
+  }, [])
   
   return (
     <div className="min-h-screen px-10 py-12 bg-gray-50">
@@ -53,7 +73,7 @@ const Home = () => {
             key={index}
             book={book}
             onBasket={() => console.log("Sepete eklendi:", book.title)}
-            onDetail={() => console.log("Detay görüntüle:", book.title)}
+            onDetail={() => navigate(`/detail/${book.id}`)}
           />
         ))}
       </div>

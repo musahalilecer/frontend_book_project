@@ -1,52 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BookTable from '../organism/BookTable'
 import { Book } from '../../model/book';
+import Button from '../atomic/Button';
+import { useNavigate } from 'react-router-dom';
+import BookService from '../../service/BookService';
 
-interface BookFormTemplateProp{
-  book: Book;
-  books: Book[];
+interface BookFormTemplateProp {
+
 }
 
-const BookFormTemplate: React.FC<BookFormTemplateProp> = ({}) => {
+const BookFormTemplate: React.FC<BookFormTemplateProp> = ({ }) => {
 
-  const bookss: Book[] = [
-      {
-        image: "https://m.media-amazon.com/images/I/81F38erQmuL._AC_UF1000,1000_QL80_.jpg",
-        title: "Serenad",
-        page: 480,
-        price: 340,
-      },
-      {
-        image: "https://m.media-amazon.com/images/I/91xrEMcvmQL._AC_UF1000,1000_QL80_.jpg",
-        title: "1984",
-        page: 328,
-        price: 220,
-      },
-      {
-        image: "https://i.dr.com.tr/cache/600x600-0/originals/0001712733001-1.jpg",
-        title: "Doktor Monreau Adasi",
-        page: 160,
-        price: 180,
-      },
-      {
-        image: "https://www.iskultur.com.tr/webp/2014/02/gwa-ciltli.jpg",
-        title: "Genc Wheather Acilari",
-        page: 160,
-        price: 180,
-      },
-      {
-        image: "https://img.kitapyurdu.com/v1/getImage/fn:1120559/wh:true/wi:800",
-        title: "Kalkulus",
-        page: 160,
-        price: 180,
-      },
-      {
-        image: "https://www.iskultur.com.tr/webp/2010/10/beyazdis-2.jpg",
-        title: "Beyaz Dis",
-        page: 160,
-        price: 180,
-      },
-    ];
+  const [books, setBooks] = useState<Book[]>();
+
+  const navigate = useNavigate();
+  const bookService = new BookService();
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await bookService.getAll();
+        setBooks(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchBooks(); // fonksiyonu çağırmayı unutma
+  }, []);
+
+  const handleDelete = async (id?: number) => {
+    try {
+      bookService.delete(id!).then(response => {
+        setBooks(books?.filter(book => book.id !== id));
+      })
+    }catch(e){
+      console.log(e);
+    }
+  
+}
+
+  /*
+    const deleteProduct = (productId: number) => {
+          productService.delete(productId).then(response => {
+              setProducts(products.filter(product => product.productId !== productId));
+          }).catch(error => {
+              console.error('Error deleting product:', error);
+          });
+      };
+    */
 
   return (
     <section className="p-6">
@@ -64,7 +66,7 @@ const BookFormTemplate: React.FC<BookFormTemplateProp> = ({}) => {
               </tr>
             </thead>
             <tbody>
-              {bookss.map((book, index) => (
+              {books?.map((book, index) => (
                 <tr
                   key={index}
                   className="bg-white border-b "
@@ -82,17 +84,30 @@ const BookFormTemplate: React.FC<BookFormTemplateProp> = ({}) => {
                   <td className="px-6 py-4">{book.page}</td>
                   <td className="px-6 py-4">{book.price} TL</td>
                   <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit
-                    </a>
+                    <div className='flex justify-between align-baseline'>
+                      <a
+                        href="#"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      >
+                        Edit
+                      </a>
+                      <a
+                        href="#"
+                        className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                        onClick={() => handleDelete(book.id!)}
+                      >
+                        Delete
+                      </a>
+                    </div>
+
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+        <div className='justify-items-end'>
+          <Button onClick={() => navigate("/admin/book_add")} className='w-full bg-green-500 text-white text-sm py-2 rounded-md hover:bg-green-700 transition-colors duration-200 cursor-pointer mt-3' children="Add Book" type='button' />
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ const Register = lazy(() => import("../components/template/Register"));
 const AdminPage = lazy(() => import("../components/page/Admin"));
 const BookFormTemplate = lazy(() => import("../components/template/BookFormTemplate"));
 const CustomerFormTemplate = lazy(() => import("../components/template/CustomerFormTemplate"));
+const BookDetailTemplate = lazy(() => import("../components/template/BookDetailTemplate"));
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
         element: <Register />,
         errorElement: <NotFound />
     },
+    {
+        path: "/detail/:id",
+        element: <BookDetailTemplate />,
+        errorElement: <NotFound />
+    },
 
     // {
     //     element: <PrivateRoute />,
@@ -62,8 +68,13 @@ export const router = createBrowserRouter([
         errorElement: <NotFound />
     },
     {
-        path: "/customer_form",
+        path: "/admin/customer_form",
         element: <CustomerFormTemplate />,
+        errorElement: <NotFound />
+    },
+    {
+        path: "/admin/book_add",
+        element: <BookAddTemplate />,
         errorElement: <NotFound />
     },
 
