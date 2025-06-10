@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import AuthBox from '../organism/LoginForm'
 import { User } from '../../model/user'
 import LoginForm from '../organism/LoginForm';
 import Button from '../atomic/Button';
@@ -12,7 +11,7 @@ interface LoginProps {
   user?: User;
 }
 
-const Login: React.FC<LoginProps> = ({ user }) => {
+const Login: React.FC<LoginProps> = ({  }) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import BookTable from '../organism/BookTable'
 import { Book } from '../../model/book';
 import Button from '../atomic/Button';
 import { useNavigate } from 'react-router-dom';
@@ -29,16 +28,24 @@ const BookFormTemplate: React.FC<BookFormTemplateProp> = ({ }) => {
     fetchBooks(); // fonksiyonu çağırmayı unutma
   }, []);
 
-  const handleDelete = async (id?: number) => {
-    try {
-      bookService.delete(id!).then(response => {
-        setBooks(books?.filter(book => book.id !== id));
-      })
-    }catch(e){
-      console.log(e);
-    }
-  
-}
+//   const handleDelete = async (id?: number) => {
+//     try {
+//       bookService.delete(id!).then(response => {
+//         setBooks(books?.filter(book => book.id !== id));
+//       })
+//     }catch(e){
+//       console.log(e);
+//     }
+// }
+
+const handleDelete = async (id: number) => {
+  try {
+    await bookService.delete(id);
+    setBooks(prevBooks => prevBooks?.filter(book => book.id !== id));
+  } catch (error) {
+    console.error("Error deleting book:", error);
+  }
+};
 
   /*
     const deleteProduct = (productId: number) => {

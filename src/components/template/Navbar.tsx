@@ -5,7 +5,7 @@ interface NavbarProp {
   className: string;
 }
 
-const Navbar: React.FC<NavbarProp> = ({ className, ...props }) => {
+const Navbar: React.FC<NavbarProp> = ({  }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

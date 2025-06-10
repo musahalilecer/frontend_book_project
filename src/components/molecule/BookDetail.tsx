@@ -1,14 +1,13 @@
-import React, { FC } from 'react'
+import React, {  } from 'react'
 import Image from '../atomic/Image.tsx';
 import { Book } from '../../model/book.ts';
-import Button from '../atomic/Button.tsx';
 
 interface BookDetailProp{
   book: Book;
   clickBuy: () => void;
 }
 
-const BookDetail: React.FC<BookDetailProp> = ({book, clickBuy, ...props}) => {
+const BookDetail: React.FC<BookDetailProp> = ({book}) => {
   return (
     <div className='flex flex-col border rounded-xl shadow-sm overflow-hidden w-4xs max-w-xs mx-auto hover:shadow-md transition-shadow duration-300'>
       <div className='bg-white flex items-center justify-center overflow-hidden rounded m-2'>

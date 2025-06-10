@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import BookCardGroup from '../organism/BookCardGroup'
+import  { useEffect, useState } from 'react'
 import BookCard from '../molecule/BookCard';
 import { Book } from '../../model/book';
 import BookService from '../../service/BookService';

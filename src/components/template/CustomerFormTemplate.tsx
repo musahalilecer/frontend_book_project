@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Customer } from '../../model/customer'
 import CustomerService from '../../service/CustomerService';
 
@@ -68,16 +68,25 @@ const CustomerFormTemplate = () => {
     fetchCustomers();
   }, [])
 
-  const handleDelete = async (id: number) => {
-    try {
-      customerService.deleteCustomer(id).then(response => {
-        setCustomers(customers.filter(customer => customer.id !== id))
-      })
-    } catch (e) {
-      console.log(e);
-    }
+  // const handleDelete = async (id: number) => {
+  //   try {
+  //     customerService.deleteCustomer(id).then(response => {
+  //       setCustomers(customers.filter(customer => customer.id !== id))
+  //     })
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
 
+  // }
+
+  const handleDelete = async (id: number) => {
+  try {
+    await customerService.deleteCustomer(id);
+    setCustomers(prevBooks => prevBooks?.filter(customer => customer.id !== id));
+  } catch (error) {
+    console.error("Error deleting book:", error);
   }
+};
 
   return (
     <section className="p-6 bg-gray-100 min-h-screen">

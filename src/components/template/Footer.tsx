@@ -3,7 +3,7 @@ import React from 'react'
 interface FooterProp {
   className: string;
 }
-const Footer: React.FC<FooterProp> = ({ className, ...props }) => {
+const Footer: React.FC<FooterProp> = ({ className }) => {
   return (
     <div className={className}>
       <footer className='bg-white rounded-ld shadow-sm m-4 mb-1 dark:bg-gray-800 h-16'>

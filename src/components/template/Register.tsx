@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import AuthBox from '../organism/LoginForm'
 import RegisterForm from '../organism/RegisterForm'
 import Button from '../atomic/Button';
 import { useNavigate } from 'react-router-dom';

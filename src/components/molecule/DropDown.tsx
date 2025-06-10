@@ -1,5 +1,4 @@
 import React from 'react'
-import Label from '../atomic/Label';
 
 export type DropdownOption = {
     label: string;

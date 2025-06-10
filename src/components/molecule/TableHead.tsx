@@ -5,7 +5,7 @@ interface TableHeadProps{
     className: string;
 }
 
-const TableHead: React.FC<TableHeadProps> = ({headers, className, ...props}) => {
+const TableHead: React.FC<TableHeadProps> = ({headers, className}) => {
   return (
     <thead className={className}>
         <tr>

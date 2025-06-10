@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link, Outlet, Route, Routes } from 'react-router-dom'
+import {  Outlet } from 'react-router-dom'
 import AdminNavbar from '../organism/AdminNavbar'
-import BookFormTemplate from '../template/BookFormTemplate'
-import CustomerFormTemplate from '../template/CustomerFormTemplate'
 
 
 const Admin: React.FC = () => {

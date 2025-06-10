@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from "../atomic/Image";
 import Label from '../atomic/Label';
 import Input from '../atomic/Input';
@@ -48,7 +47,7 @@ const Contact = () => {
                   children="Submit"
                   onClick={handleClick}
                   type="submit"
-                  className="w-full bg-gray-800 hover:bg-gray-00 text-white py-3 rounded-lg transition-all duration-200 shadow-md hover:transition duration-300 ease-in-out cursor-pointer hover:bg-indigo-900 hover:scale-110"
+                  className="w-full bg-gray-800 hover:bg-gray-00 text-white py-3 rounded-lg transition-all shadow-md hover:transition duration-300 ease-in-out cursor-pointer hover:bg-indigo-900 hover:scale-110"
                 />
               </div>
             </form>

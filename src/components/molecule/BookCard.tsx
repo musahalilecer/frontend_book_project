@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from "../atomic/Image.tsx";
-import TextArea from '../atomic/TextArea.tsx';
 import { Book } from '../../model/book.ts'
 import Button from '../atomic/Button.tsx';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +10,7 @@ interface BookCardProp {
   onDetail: () => void;
 }
 
-const BookCard: React.FC<BookCardProp> = ({ book, onBasket, onDetail, ...props }) => {
+const BookCard: React.FC<BookCardProp> = ({ book, onBasket, onDetail }) => {
 
   const navigate = useNavigate();
 

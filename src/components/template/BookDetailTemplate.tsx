@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import BookDetail from '../molecule/BookDetail'
 import { Book } from '../../model/book'
 import { useParams } from 'react-router-dom';

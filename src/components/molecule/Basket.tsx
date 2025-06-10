@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import BookCard from './BookCard'
 import { Book } from '../../model/book'
 
 
@@ -10,7 +9,7 @@ useEffect(() => {
 
 })
 
-const Basket: React.FC<BasketProp> = ({book, ...props}) => {
+const Basket: React.FC<BasketProp> = ({}) => {
   return (
     <div>
       <div className="">

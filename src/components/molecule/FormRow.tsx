@@ -1,4 +1,3 @@
-import React, { Children } from 'react'
 import Label from '../atomic/Label'
 import Input from '../atomic/Input'
 
@@ -20,9 +19,7 @@ const FormRow: React.FC<FormRowProp> = ({
   name,
   type = "text",
   value,
-  required,
-  className,
-  ...props }) => {
+   }) => {
   return (
     <div>
       <div>
