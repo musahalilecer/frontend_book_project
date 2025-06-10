@@ -16,6 +16,7 @@ import BookFormTemplate from './components/template/BookFormTemplate'
 import CustomerFormTemplate from './components/template/CustomerFormTemplate'
 import BookAddTemplate from './components/template/BookAddTemplate'
 import BookDetailTemplate from './components/template/BookDetailTemplate'
+import UserDashboard from './components/template/UserDashboard'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/detail/:id" element={<BookDetailTemplate />} />
+          <Route path="/user" element={<UserDashboard />} />
 
           <Route path="/admin" element={<Admin />}>
             <Route index element={<Navigate to="book_form" replace />} />

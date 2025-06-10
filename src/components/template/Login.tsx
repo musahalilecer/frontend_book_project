@@ -4,6 +4,8 @@ import { User } from '../../model/user'
 import LoginForm from '../organism/LoginForm';
 import Button from '../atomic/Button';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify"
+import Auth from '../../security/auth';
 
 
 interface LoginProps {
@@ -11,17 +13,26 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ user }) => {
-  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
 
-  const signIn = () => {
-    
-  }
+  const signIn = async (e?: React.FormEvent<HTMLFormElement>) => {
+    if(e) e.preventDefault();
+    try{
+      const auth = new Auth();
+      const response = await auth.login(username, password);
+      
+      if(response.status === 200){
+        toast.success("Login is succesful");
+        navigate("/user");
+      }
+    }
+    catch(e: any){
+      toast.error("Login failed" + (e.response?.data?.message || "Unknown Error"));
 
-  const register = () => {
-
-  }
+    }
+  };
 
   return (
 
@@ -30,9 +41,9 @@ const Login: React.FC<LoginProps> = ({ user }) => {
         <h2 className="text-2xl font-bold text-center">Welcome Back</h2>
 
         <LoginForm
-          email={email}
+          email={username}
           password={password}
-          setEmail={setEmail}
+          setEmail={setUsername}
           setPassword={setPassword}
           onSubmit={signIn}
         />
@@ -50,7 +61,7 @@ const Login: React.FC<LoginProps> = ({ user }) => {
         <Button
           onClick={signIn}
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 cursor-pointer"
         >
           Login
         </Button>

@@ -33,7 +33,7 @@ const BookCard: React.FC<BookCardProp> = ({ book, onBasket, onDetail, ...props }
           className='w-full bg-green-600 text-white text-sm py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200 cursor-pointer mr-2'
           onClick={onBasket}
         >
-          Sepete Ekle
+          Ödünç Al
         </Button>
         <Button
           className='w-full bg-cyan-500 text-white text-sm py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200 cursor-pointer ml-2'
